@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>howto.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="usage-guide">Usage guide</h1>
+<h2 id="list-of-10-step-optimized-schedules">List of 10-step optimized schedules</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Model</th>
+<th style="text-align:center">Schedule (noise levels)</th>
+<th style="text-align:center">Schedule (timestep indices)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Stable Diffusion 1.5</td>
+<td style="text-align:center">[14.615, 6.475, 3.861, 2.697, 1.886, 1.396, 0.963, 0.652, 0.399, 0.152, 0.029]</td>
+<td style="text-align:center">[999, 850, 736, 645, 545, 455, 343, 233, 124,  24,   0]</td>
+</tr>
+<tr>
+<td style="text-align:left">SDXL</td>
+<td style="text-align:center">[14.615, 6.315, 3.771, 2.181, 1.342, 0.862, 0.555, 0.380, 0.234, 0.113, 0.029]</td>
+<td style="text-align:center">[999, 845, 730, 587, 443, 310, 193, 116,  53,  13,   0]</td>
+</tr>
+<tr>
+<td style="text-align:left">DeepFloyd-IF / Stage-1</td>
+<td style="text-align:center">[160.41, 8.081, 3.315, 1.885, 1.207, 0.785, 0.553, 0.293, 0.186, 0.030, 0.006]</td>
+<td style="text-align:center">[995, 920, 811, 686, 555, 418, 315, 174, 109,  12,   0]</td>
+</tr>
+<tr>
+<td style="text-align:left">Stable Video Diffusion</td>
+<td style="text-align:center">[700.00, 54.5, 15.886, 7.977, 4.248, 1.789, 0.981, 0.403, 0.173, 0.034, 0.002]</td>
+<td style="text-align:center">NA</td>
+</tr>
+</tbody>
+</table>
+<h2 id="quick-adoption-with-diffusers-%F0%9F%A7%A8">Quick adoption with diffusers 🧨</h2>
+<p>Below we describe how to use these schedules in practice.</p>
+<p>For discrete diffusion models - such as Stable Diffusion, SDXL, and DeepFloyd - the list of timestep indices can be passed with the <code>timesteps</code> parameter.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">from</span> diffusers <span class="hljs-keyword">import</span> StableDiffusionPipeline, DPMSolverMultistepScheduler
+
+model_id = <span class="hljs-string">"runwayml/stable-diffusion-v1-5"</span>
+pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16, revision=<span class="hljs-string">"fp16"</span>).to(<span class="hljs-string">"cuda"</span>)
+pipe.scheduler = DPMSolverMultistepScheduler.from_config(pipe.scheduler.config)  
+
+sampling_schedule = [<span class="hljs-number">999</span>, <span class="hljs-number">850</span>, <span class="hljs-number">736</span>, <span class="hljs-number">645</span>, <span class="hljs-number">545</span>, <span class="hljs-number">455</span>, <span class="hljs-number">343</span>, <span class="hljs-number">233</span>, <span class="hljs-number">124</span>,  <span class="hljs-number">24</span>,   <span class="hljs-number">0</span>]
+
+prompt = <span class="hljs-string">"a photo of an astronaut riding a horse on mars"</span>
+image = pipe(
+    prompt, timesteps=sampling_schedule,
+).images[<span class="hljs-number">0</span>]  
+    
+image.save(<span class="hljs-string">"astronaut_rides_horse.png"</span>)
+</div></code></pre>
+<p>For continuous diffusion models like EDM, such as Stable Video Diffusion (SVD), the noise level values can be directly given to the model as their <code>sigma</code> inputs. Unfortunately, the default SVD implementation in diffusers does not support a <code>timesteps</code> input, so the underlying code must be changed.</p>
+<pre class="hljs"><code><div>sigma_max = <span class="hljs-number">700.00</span>
+sigma_min = <span class="hljs-number">0.002</span>
+num_steps = <span class="hljs-number">10</span>
+
+<span class="hljs-comment"># EDM Schedule</span>
+rho = <span class="hljs-number">7</span>
+t_steps = torch.linspace(sigma_max ** (<span class="hljs-number">1</span> / rho), sigma_min ** (<span class="hljs-number">1</span> / rho), num_steps + <span class="hljs-number">1</span>) ** rho
+
+<span class="hljs-comment"># Optimized schedule</span>
+t_steps = [<span class="hljs-number">700.00</span>, <span class="hljs-number">54.5</span>, <span class="hljs-number">15.886</span>, <span class="hljs-number">7.977</span>, <span class="hljs-number">4.248</span>, <span class="hljs-number">1.789</span>, <span class="hljs-number">0.981</span>, <span class="hljs-number">0.403</span>, <span class="hljs-number">0.173</span>, <span class="hljs-number">0.034</span>, <span class="hljs-number">0.002</span>]
+</div></code></pre>
+<p>For higher number of steps, we've found that log-linearly interpolating the noise levels works well in practice.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">loglinear_interp</span><span class="hljs-params">(t_steps, num_steps)</span>:</span>
+    <span class="hljs-string">"""
+    Performs log-linear interpolation of a given array of decreasing numbers.
+    """</span>
+    xs = np.linspace(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, len(t_steps))
+    ys = np.log(t_steps[::<span class="hljs-number">-1</span>])
+    
+    new_xs = np.linspace(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, num_steps)
+    new_ys = np.interp(new_xs, xs, ys)
+    
+    interped_ys = np.exp(new_ys)[::<span class="hljs-number">-1</span>].copy()
+    <span class="hljs-keyword">return</span> interped_ys
+
+
+sampling_schedule = [<span class="hljs-number">700.00</span>, <span class="hljs-number">54.5</span>, <span class="hljs-number">15.886</span>, <span class="hljs-number">7.977</span>, <span class="hljs-number">4.248</span>, <span class="hljs-number">1.789</span>, <span class="hljs-number">0.981</span>, <span class="hljs-number">0.403</span>, <span class="hljs-number">0.173</span>, <span class="hljs-number">0.034</span>, <span class="hljs-number">0.002</span>]
+num_steps = <span class="hljs-number">20</span>
+t_steps = loglinear_interp(sampling_schedule, num_steps)
+</div></code></pre>
+
+</body>
+</html>
