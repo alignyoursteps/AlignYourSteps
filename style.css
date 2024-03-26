@@ -1,0 +1,413 @@
+body {
+    font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    /* font-family: 'Lato', Verdana, Helvetica, sans-serif; */
+    font-weight: 300;
+    font-size: 17px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 980px;
+}
+
+
+a:link,
+a:visited {
+    color: #1367a7;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #208799;
+}
+
+h1,
+h2,
+h3 {
+    text-align: center;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1.15em;
+}
+
+h2 {
+    font-size: 1.75em;
+    font-weight: 400;
+    margin: 16px 0px 4px 0px;
+}
+
+h3 {
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: -2px;
+}
+
+.rainbow-text {
+    font-size: 40px;
+    background-image: linear-gradient(to left, rgb(252, 252, 183), green 50%, #00FF00 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+
+
+.paper-title {
+    padding: 16px 0px 16px 0px;
+}
+
+section {
+    margin: 32px 0px 32px 0px;
+    text-align: justify;
+    clear: both;
+}
+
+.col-6 {
+    width: 16.6%;
+    float: left;
+}
+
+.col-5 {
+    width: 20%;
+    float: left;
+}
+
+.col-4 {
+    width: 25%;
+    float: left;
+}
+
+.bold-sentence {
+    font-weight: bold;
+}
+
+.col-3 {
+    width: 33%;
+    float: left;
+}
+
+.col-2 {
+    width: 50%;
+    float: left;
+}
+
+.row,
+.author-row,
+.affil-row {
+    overflow: auto;
+}
+
+.author-row {
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.row {
+    margin: 16px 0px 16px 0px;
+}
+
+.authors {
+    font-size: 18px;
+}
+
+.affil-row {
+    width: 75%;
+    margin: 16px auto;
+    font-size: 18px;
+    display: block; /* This makes sure that auto margins work for horizontal centering */
+}
+
+.teaser {
+    max-width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.screenshot {
+    width: 256px;
+    border: 1px solid #ddd;
+}
+
+.screenshot-el {
+    margin-bottom: 16px;
+}
+
+hr {
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin: 0;
+}
+
+.material-icons {
+    vertical-align: -6px;
+}
+
+p {
+    line-height: 1.25em;
+}
+
+.caption {
+    font-size: 16px;
+    /*font-style: italic;*/
+    color: rgb(73, 73, 73);
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 12px;
+}
+
+.caption_method {
+    font-size: 16px;
+    /*font-style: italic;*/
+    color: rgb(73, 73, 73);
+    /* text-align: center; */
+    margin-top: 15px;
+    margin-bottom: 12px;
+}
+
+.caption_teaser_video {
+    font-size: 16px;
+    color: #666;
+    margin-top: 4px;
+    margin-bottom: 10px;
+}
+
+video {
+    display: block;
+    margin: auto;
+}
+
+figure {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#bibtex pre {
+    font-size: 14px;
+    background-color: #eee;
+    padding: 16px;
+}
+
+.blue {
+    color: #2c82c9;
+    font-weight: bold;
+}
+
+.orange {
+    color: #d35400;
+    font-weight: bold;
+}
+
+.flex-row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.paper-btn {
+    position: relative;
+    text-align: center;
+
+    display: inline-block;
+    margin: 8px;
+    padding: 8px 8px;
+
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+
+    background-color: #1367a7;
+    color: #ecf0f1 !important;
+    font-size: 20px;
+    width: 100px;
+    font-weight: 600;
+}
+
+/* .supp-btn {
+  position: relative;
+  text-align: center;
+
+  display: inline-block;
+  margin: 8px;
+  padding: 8px 8px;
+
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  
+  background-color: #1367a7;
+  color: #ecf0f1 !important;
+  font-size: 18px;
+  width: 90px;
+  font-weight: 400;
+} */
+.supp-btn {
+    background-color: #fff;
+    border: 1.5px solid #000;
+    color: #000 !important;
+    font-size: 16px;
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    letter-spacing: 1px;
+    margin: 8px;
+    padding: 8px 8px;
+    width: 150px;
+    font-weight: 400;
+}
+
+.paper-btn-parent {
+    display: flex;
+    justify-content: center;
+    margin: 16px 0px;
+}
+
+.paper-btn:hover {
+    opacity: 0.85;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+/* .venue {
+    color: #1367a7;
+} */
+.venue {
+    /*    color: #1367a7;*/
+    color: #111111;
+    font-size: 28;
+    font-weight: 400;
+}
+
+
+.topnav {
+    overflow: hidden;
+    background-color: #EEEEEE;
+}
+
+.topnav a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.controls {
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.left-controls {
+    display: inline-block;
+    vertical-align: top;
+    width: 80%;
+}
+
+.right-controls {
+    display: inline-block;
+    vertical-align: top;
+    width: 19%;
+    text-align: right;
+}
+
+.render_window {
+    display: inline-block;
+    vertical-align: middle;
+    box-shadow: 0px 0px 0px black;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: calc(33% - 20px);
+}
+
+/* From Ref-NeRF */
+.video-compare-container {
+    width: 95%;
+    margin: 0 auto;
+    position: relative;
+    display: block;
+    line-height: 0;
+    overflow: hidden !important;
+}
+
+.video {
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.videoMerge {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    background-size: cover;
+}
+
+.cropped-video {
+    width: 100%;
+    overflow: hidden;
+    display: block;
+}
+
+.large_video {
+    margin: 10px 0 0 0;
+    border: 1px solid #BBB;
+    box-shadow: 0 0 30px #792;
+}
+
+.wrapper {
+    display: flex;
+    margin-bottom: -10pt;
+    text-align: center;
+}
+
+
+
+/* Magnification stuff */
+.image-container {
+    position: relative;
+    text-align: center;
+}
+
+.magnifier {
+    position: absolute;
+    border: 3px solid #000;
+    border-radius: 15%;
+    cursor: none;
+    width:  150px; /* Size of the magnifying circle */
+    height: 150px;
+    overflow: hidden;
+    display: none; /* Hide by default */
+    pointer-events: none;
+    z-index: 1000;
+}
+
+
+    

@@ -1,0 +1,839 @@
+<!DOCTYPE HTML "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script> -->
+<script>
+  MathJax = {
+    tex: {
+      packages: ['base', 'amsmath', 'amssymb'] // Ensure these packages are included
+    }
+  };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.min.js" async></script>
+
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript" src="../js/hidebib.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600,400italic,600italic,300,300italic'
+  rel='stylesheet' type='text/css'>
+
+<head>
+  <title>Align Your Steps</title>
+  <meta property="og:description" content="Align Your Steps: Optimizing Sampling Schedules in Diffusion Models" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+</head>
+
+
+<body>
+  <div class="container">
+    <div class="paper-title">
+      <h1>
+        <div style="font-size:50px; font-weight: 600; margin-bottom: -20pt;">Align Your Steps:</div> <br>
+        Optimizing Sampling Schedules in Diffusion Models <br>
+      </h1>
+    </div>
+
+    <section id="experiments">
+
+      <h2>Additional qualitative results</h2>
+      <hr>
+
+      <div id="sd15-results">
+        <h3>
+          Stable Diffusion 1.5
+        </h3>
+        <div class="wrapper" style="margin-bottom: -10pt;">
+          <figure style="text-align: center; font-weight: bold;">
+            EDM
+          </figure>
+
+          <figure style="text-align: center; font-weight: bold;">
+            Time uniform
+          </figure>
+
+          <figure style="text-align: center; font-weight: bold; color: rgb(118, 185, 0);">
+            AYS
+          </figure>
+        </div>
+        
+        <div class="wrapper">
+          <figure class="image-container">
+            <img width="95%" src="./assets/sd15/babel_0_edm.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sd15/babel_0_time_uniform.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sd15/babel_0_klub.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+        </div>
+        <p style="margin-bottom: 1px; text-align: center;" class="caption_method">
+          <b>Text prompt: <em>"A digital Illustration of the Babel tower, 4k, detailed, trending in artstation, fantasy vivid colors"</em></b>
+          <br>
+          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
+        </p>
+
+        <div class="wrapper">
+          <figure class="image-container">
+            <img width="95%" src="./assets/sd15/desertdome_1_edm.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sd15/desertdome_1_time_uniform.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sd15/desertdome_1_klub.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+        </div>
+        <p style="margin-bottom: 1px; text-align: center;" class="caption_method">
+          <b>Text prompt: <em>"A desert observatory with a domed roof, sitting isolated under a star-filled sky, designed for optimal viewing of celestial events"</em></b>
+          <br>
+          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
+        </p>
+
+        <div class="wrapper">
+          <figure class="image-container">
+            <img width="95%" src="./assets/sd15/glass_0_edm.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sd15/glass_0_time_uniform.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sd15/glass_0_klub.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+        </div>
+        <p style="margin-bottom: 1px; text-align: center;" class="caption_method">
+          <b>Text prompt: <em>"A glass-blown vase with a complex swirl of colors, illuminated by sunlight, casting a mosaic of shadows on a white table"</em></b>
+          <br>
+          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
+        </p>
+
+        <div class="wrapper">
+          <figure class="image-container">
+            <img width="95%" src="./assets/sd15/pendant_0_edm.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sd15/pendant_0_time_uniform.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sd15/pendant_0_klub.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+        </div>
+        <p style="margin-bottom: 1px; text-align: center;" class="caption_method">
+          <b>Text prompt: <em>
+            "A delicate glass pendant holding a single, luminous firefly, its glow casting warm, dancing shadows on the wearer's neck"
+          </em></b>
+          <br>
+          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
+        </p>
+
+        <div class="wrapper">
+          <figure class="image-container">
+            <img width="95%" src="./assets/sd15/greenforest_2_edm.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sd15/greenforest_2_time_uniform.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sd15/greenforest_2_klub.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+        </div>
+        <p style="margin-bottom: 1px; text-align: center;" class="caption_method">
+          <b>Text prompt: <em>"An enchanting forest path with sunlight filtering through the dense canopy, highlighting
+              the
+              vibrant greens
+              and the soft, mossy floor"</em></b>
+          <br>
+          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
+        </p>
+
+        <div class="wrapper">
+          <figure class="image-container">
+            <img width="95%" src="./assets/sd15/owl_0_edm.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sd15/owl_0_time_uniform.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sd15/owl_0_klub.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+        </div>
+        <p style="margin-bottom: 1px; text-align: center;" class="caption_method">
+          <b>Text prompt:
+            <em>"A wise old owl wearing a velvet smoking jacket and spectacles, with a pipe in its beak, seated in a
+              vintage
+              leather armchair"</em>
+          </b>
+          <br>
+          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
+        </p>
+
+        <div class="wrapper">
+          <figure class="image-container">
+            <img width="95%" src="./assets/sd15/spiderman_7_edm.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sd15/spiderman_7_time_uniform.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sd15/spiderman_7_klub.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+        </div>
+        <p style="margin-bottom: 1px; text-align: center;" class="caption_method">
+          <b>Text prompt:
+            <em>"A close-up portrait of a baby wearing a tiny spider-man costume, trending on artstation"</em>
+          </b>
+          <br>
+          <small>Model: Dreamshaper 8, Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
+        </p>
+
+        <div class="wrapper">
+          <figure class="image-container">
+            <img width="95%" src="./assets/sd15/girldancing_0_edm.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sd15/girldancing_0_time_uniform.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sd15/girldancing_0_klub.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+        </div>
+        <p style="margin-bottom: 1px; text-align: center;" class="caption_method">
+          <b>Text prompt:
+            <em>"1girl, blue dress, blue hair, ponytail, studying at the library, focused"</em>
+          </b>
+          <br>
+          <small>Model: Dreamshaper 8, Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
+        </p>
+      </div>
+
+      <div id="deepfloyd-results">
+        <h3>
+          DeepFloyd-IF
+        </h3>
+        <div class="wrapper" style="margin-bottom: -10pt;">
+          <figure style="text-align: center; font-weight: bold;">
+            EDM
+          </figure>
+
+          <figure style="text-align: center; font-weight: bold;">
+            Time uniform
+          </figure>
+
+          <figure style="text-align: center; font-weight: bold; color: rgb(118, 185, 0);">
+            AYS
+          </figure>
+        </div>
+
+
+        <div class="wrapper">
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample000/edm_1.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample000/time_uniform_1.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample000/klub_1.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+        </div>
+        <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <b>Text prompt:
+            <em>"Capybara podcast neon sign"</em>
+          </b>
+          <br>
+          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
+        </p>
+
+        <div class="wrapper">
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample000/edm_2.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample000/time_uniform_2.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample000/klub_2.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+        </div>
+        <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <b>Text prompt:
+            <em>"Capybara podcast neon sign"</em>
+          </b>
+          <br>
+          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
+        </p>
+
+        <div class="wrapper">
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample000/edm_3.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample000/time_uniform_3.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample000/klub_3.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+        </div>
+        <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <b>Text prompt:
+            <em>"Capybara podcast neon sign"</em>
+          </b>
+          <br>
+          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
+        </p>
+
+        <div class="wrapper">
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample001/edm_1.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample001/time_uniform_1.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample001/klub_1.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+        </div>
+        <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <b>Text prompt:
+            <em>"Long-exposure night photography of a starry sky over a mountain range, with light trails"</em>
+          </b>
+          <br>
+          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
+        </p>
+
+        <div class="wrapper">
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample003/edm_2.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample003/time_uniform_2.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample003/klub_2.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+        </div>
+        <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <b>Text prompt:
+            <em>"A tranquil village nestled in a lush valley, with small, cozy houses dotting the landscape, surrounded by towering, snow-capped mountains under a clear blue sky. A gentle river meanders through the village, reflecting the warm glow of the sunrise"</em>
+          </b>
+          <br>
+          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
+        </p>
+
+        <div class="wrapper">
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample005/edm_2.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample005/time_uniform_2.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample005/klub_2.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+        </div>
+        <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <b>Text prompt:
+            <em>"An ancient library buried beneath the earth, its halls lit by glowing crystals, with scrolls and tomes stacked in endless rows"</em>
+          </b>
+          <br>
+          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
+        </p>
+
+        <div class="wrapper">
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample006/edm_3.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample006/time_uniform_3.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample006/klub_3.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+        </div>
+        <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <b>Text prompt:
+            <em>"A bustling spaceport on a distant planet, with ships of various designs taking off against a backdrop of twin moons"</em>
+          </b>
+          <br>
+          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
+        </p>
+
+        <div class="wrapper">
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample007/edm_2.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample007/time_uniform_2.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample007/klub_2.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+        </div>
+        <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <b>Text prompt:
+            <em>"A frozen landscape under the aurora borealis, with a cozy log cabin emitting a warm glow through its windows."</em>
+          </b>
+          <br>
+          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
+        </p>
+
+        <div class="wrapper">
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample008/edm_1.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample008/time_uniform_1.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample008/klub_1.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+        </div>
+        <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <b>Text prompt:
+            <em>"A hidden garden oasis in the middle of a desert, complete with a sparkling waterfall and lush, vibrant flora."</em>
+          </b>
+          <br>
+          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
+        </p>
+
+        <div class="wrapper">
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample009/edm_4.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample009/time_uniform_4.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample009/klub_4.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+        </div>
+        <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <b>Text prompt:
+            <em>"A steampunk cityscape at sunset, with airships in the sky and gears and steam pipes crisscrossing between buildings."</em>
+          </b>
+          <br>
+          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
+        </p>
+
+        <div class="wrapper">
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample010/edm_2.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample010/time_uniform_2.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample010/klub_2.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+        </div>
+        <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <b>Text prompt:
+            <em>"A set of ancient armor, standing as if worn by an invisible warrior, in front of a backdrop of medieval banners and weaponry."</em>
+          </b>
+          <br>
+          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
+        </p>
+
+        <div class="wrapper">
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample011/edm_3.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample011/time_uniform_3.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="100%" src="./assets/deepfloyd/sample011/klub_3.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+        </div>
+        <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <b>Text prompt:
+            <em>"An elephant painting a colorful abstract masterpiece with its trunk, in a studio surrounded by amused onlookers."</em>
+          </b>
+          <br>
+          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
+        </p>
+      </div>
+
+      <div id="sdxl-results">
+        <h3>
+          SDXL
+        </h3>
+        <div class="wrapper" style="margin-bottom: -10pt;">
+          <figure style="text-align: center; font-weight: bold;">
+            EDM
+          </figure>
+
+          <figure style="text-align: center; font-weight: bold;">
+            Time uniform
+          </figure>
+
+          <figure style="text-align: center; font-weight: bold; color: rgb(118, 185, 0);">
+            AYS
+          </figure>
+        </div>
+
+        <div class="wrapper">
+          <figure class="image-container">
+            <img width="95%" src="./assets/sdxl/tiger_3_edm.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sdxl/tiger_3_time_uniform.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sdxl/tiger_3_klub.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+        </div>
+        <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <b>Text prompt:
+            <em>"Tiger in construction gear, perched on aged wooden docks, formidable, curious, tiger on the waterfront,
+              textured, vibrant, atmospheric, sharp focus, lifelike, professional lighting, cinematic, 8K"</em>
+          </b>
+          <br>
+          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
+        </p>
+
+        <div class="wrapper">
+          <figure class="image-container">
+            <img width="95%" src="./assets/sdxl/babayaga_0_edm.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sdxl/babayaga_0_time_uniform.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sdxl/babayaga_0_klub.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+        </div>
+        <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <b>Text prompt:
+            <em>"Baba Yaga's hut, standing on gnarled chicken legs, nestled in a sinister, fog-laden swamp. 
+              The hut is surrounded by twisted trees and a foreboding silence"</em>
+          </b>
+          <br>
+          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
+        </p>
+
+        <div class="wrapper">
+          <figure class="image-container">
+            <img width="95%" src="./assets/sdxl/animehouse_2_edm.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sdxl/animehouse_2_time_uniform.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sdxl/animehouse_2_klub.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+        </div>
+        <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <b>Text prompt:
+            <em>"Cluttered house in the woods, anime, oil painting, high resolution, cottagecore, ghibli inspired,
+              4k"</em>
+          </b>
+          <br>
+          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
+        </p>
+
+        <div class="wrapper">
+          <figure class="image-container">
+            <img width="95%" src="./assets/sdxl/dollhouse_0_edm.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sdxl/dollhouse_0_time_uniform.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sdxl/dollhouse_0_klub.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+        </div>
+        <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <b>Text prompt:
+            <em>"An old, creepy dollhouse in a dusty attic, with dolls posed in unsettling positions. Cobwebs, dim lighting, and the shadows of unseen presences create a chilling scene"</em>
+          </b>
+          <br>
+          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
+        </p>
+
+
+        <div class="wrapper">
+          <figure class="image-container">
+            <img width="95%" src="./assets/sdxl/forest_2_edm.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sdxl/forest_2_time_uniform.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sdxl/forest_2_klub.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+        </div>
+        <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <b>Text prompt:
+            <em>"A stunning, intricately detailed painting of a sunset in a forest valley, blending the rich,
+              symmetrical
+              styles of Dan Mumford and Marc Simonetti with astrophotography elements"</em>
+          </b>
+          <br>
+          <small> Sampler: DPM-Solver++(2M), NFE: 10 </small>
+        </p>
+
+        <div class="wrapper">
+          <figure class="image-container">
+            <img width="95%" src="./assets/sdxl/storm_1_edm.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sdxl/storm_1_time_uniform.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+
+          <figure class="image-container">
+            <img width="95%" src="./assets/sdxl/storm_1_klub.png" style="margin-bottom: 0px;">
+            <div class="magnifier"></div>
+          </figure>
+        </div>
+        <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <b>Text prompt:
+            <em>"Create a photorealistic scene of a powerful storm with swirling, dark clouds and fierce winds
+              approaching a
+              coastal village. Show villagers preparing for the storm, with detailed architecture reflecting a fantasy
+              world"</em>
+          </b>
+          <br>
+          <small> Sampler: DPM-Solver++(2M), NFE: 10 </small>
+
+          <div class="wrapper">
+            <figure class="image-container">
+              <img width="95%" src="./assets/sdxl/cyberpunk_1_edm.png" style="margin-bottom: 0px;">
+              <div class="magnifier"></div>
+            </figure>
+  
+            <figure class="image-container">
+              <img width="95%" src="./assets/sdxl/cyberpunk_1_time_uniform.png" style="margin-bottom: 0px;">
+              <div class="magnifier"></div>
+            </figure>
+  
+            <figure class="image-container">
+              <img width="95%" src="./assets/sdxl/cyberpunk_1_klub.png" style="margin-bottom: 0px;">
+              <div class="magnifier"></div>
+            </figure>
+          </div>
+          <p style="margin-bottom: 1px; text-align: center;" class="caption">
+            <b>Text prompt:
+              <em>"Cyberpunk cityscape with towering skyscrapers, neon signs, and flying cars"</em>
+            </b>
+            <br>
+            <small> Sampler: DPM-Solver++(2M), NFE: 10 </small>
+        </p>
+
+
+
+
+
+      </div>
+
+
+    </section>
+
+    <script>
+      function preloadImage(url) {
+        const img = new Image();
+        img.src = url;
+      }
+
+      document.querySelectorAll('.wrapper').forEach(wrapper => {
+        wrapper.querySelectorAll('.image-container img').forEach((img) => {
+          (img.nextElementSibling || img.previousElementSibling).style.backgroundImage = 'url(' + (img.dataset.src_original ?? img.src) + ')'
+          preloadImage(img.dataset.src_original ?? img.src);
+          preloadImage(img.dataset.src_zoomed ?? img.src);
+          img.addEventListener('mousemove', (e) => magnify(e, wrapper));
+          img.addEventListener('mouseleave', (e) => hideMagnifier(wrapper));
+        });
+      });
+
+
+      function magnify(e, wrapper) {
+        const magnifiers = wrapper.querySelectorAll('.magnifier');
+        let zoomFactor = parseFloat(wrapper.dataset.zoom_level) || 3;
+        let windowSizeX = parseFloat(wrapper.dataset.window_size_x) || 0.33;
+        let windowSizeY = parseFloat(wrapper.dataset.window_size_y) || 0.33;
+
+        let x = e.offsetX;
+        let y = e.offsetY;
+        let xPercent = x / e.toElement.offsetWidth;
+        let yPercent = y / e.toElement.offsetHeight;
+
+        // Clamp values to be inside the box
+        xPercent = Math.max(windowSizeX / 2, Math.min(xPercent, 1.0 - windowSizeX / 2));
+        yPercent = Math.max(windowSizeY / 2, Math.min(yPercent, 1.0 - windowSizeY / 2));
+        x = xPercent * e.toElement.width;
+        y = yPercent * e.toElement.height;
+
+
+        magnifiers.forEach((magnifier) => {
+          const img = magnifier.previousElementSibling;
+          const magnifierSize = magnifier.offsetWidth / 2;
+
+          const originalSrc = img.dataset.src_original ?? img.src;
+          const zoomedSrc = img.dataset.src_zoomed ?? img.src;
+
+          img.src = originalSrc;
+
+          // Calculate the position for the background image
+          const bgX = (xPercent * img.offsetWidth);
+          const bgY = (yPercent * img.offsetHeight);
+
+          magnifier.style.display = 'block';
+          magnifier.style.boxSizing = "border-box";
+          magnifier.style.width = (windowSizeX * img.offsetWidth * zoomFactor) + 'px';
+          magnifier.style.height = (windowSizeY * img.offsetHeight * zoomFactor) + 'px';
+
+          magnifier.style.left = (x - magnifier.offsetWidth / 2 + 0.5 * (img.parentElement.offsetWidth - img.offsetWidth)) + 'px';
+          magnifier.style.top = (y - magnifier.offsetHeight / 2 + 0.5 * (img.parentElement.offsetHeight - img.offsetHeight)) + 'px';
+
+          magnifier.style.backgroundSize = `${img.offsetWidth * zoomFactor}px ${img.offsetHeight * zoomFactor}px`;
+          let bgTrueX = Math.max(0, bgX * zoomFactor - magnifier.offsetWidth / 2);
+          let bgTrueY = Math.max(0, bgY * zoomFactor - magnifier.offsetHeight / 2);
+          magnifier.style.backgroundPosition = '-' + (bgTrueX) + 'px -' + (bgTrueY) + 'px';
+        });
+      }
+
+      function hideMagnifier(wrapper) {
+        wrapper.querySelectorAll('.magnifier').forEach(magnifier => {
+          magnifier.style.display = 'none';
+
+          const img = magnifier.previousElementSibling;
+          const originalSrc = img.dataset.src_original ?? img.src;
+          const zoomedSrc = img.dataset.src_zoomed ?? img.src;
+          img.src = zoomedSrc;
+        });
+      } 
+    </script>
+  </div>
+
+</body>
+
+</html>
