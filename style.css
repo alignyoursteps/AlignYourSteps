@@ -115,7 +115,8 @@ section {
     width: 75%;
     margin: 16px auto;
     font-size: 18px;
-    display: block; /* This makes sure that auto margins work for horizontal centering */
+    display: block;
+    /* This makes sure that auto margins work for horizontal centering */
 }
 
 .teaser {
@@ -401,13 +402,12 @@ figure {
     border: 3px solid #000;
     border-radius: 15%;
     cursor: none;
-    width:  150px; /* Size of the magnifying circle */
+    width: 150px;
+    /* Size of the magnifying circle */
     height: 150px;
     overflow: hidden;
-    display: none; /* Hide by default */
+    display: none;
+    /* Hide by default */
     pointer-events: none;
     z-index: 1000;
 }
-
-
-    

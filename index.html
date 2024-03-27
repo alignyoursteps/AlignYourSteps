@@ -11,6 +11,7 @@
   };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.min.js" async></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
 <script type="text/javascript">google.load("jquery", "1.3.2");</script>
 <link rel="stylesheet" href="style.css">
@@ -38,6 +39,14 @@
 
       <h2>Additional qualitative results</h2>
       <hr>
+
+      <p>
+        Here, we show additional visual comparisons between images generated with AYS's optimized sampling schedules and previous hand-crafted schedules. 
+        Note how the AYS-based samples usually show more fine-grained details and exhibit enhanced photorealism. 
+        We show results for Stable Diffusion 1.5, DeepFloyd-IF, and SDXL. <span style="color: deeppink;">Please hover over the images for zoom-ins.</span> 
+        All images here are generated with a stochastic (<i class="material-icons">casino</i>) or deterministic (<i class="material-icons">lock</i>) version of DPM-Solver++(2M) with 10 steps, 
+        using the different sampling schedules (EDM, Time uniform, our novel AYS).
+      </p>
 
       <div id="sd15-results">
         <h3>
@@ -74,9 +83,8 @@
           </figure>
         </div>
         <p style="margin-bottom: 1px; text-align: center;" class="caption_method">
+          <small><i class="material-icons">casino</i></small>
           <b>Text prompt: <em>"A digital Illustration of the Babel tower, 4k, detailed, trending in artstation, fantasy vivid colors"</em></b>
-          <br>
-          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
         </p>
 
         <div class="wrapper">
@@ -96,9 +104,8 @@
           </figure>
         </div>
         <p style="margin-bottom: 1px; text-align: center;" class="caption_method">
+          <small><i class="material-icons">casino</i></small>
           <b>Text prompt: <em>"A desert observatory with a domed roof, sitting isolated under a star-filled sky, designed for optimal viewing of celestial events"</em></b>
-          <br>
-          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
         </p>
 
         <div class="wrapper">
@@ -118,9 +125,8 @@
           </figure>
         </div>
         <p style="margin-bottom: 1px; text-align: center;" class="caption_method">
+          <small><i class="material-icons">casino</i></small>
           <b>Text prompt: <em>"A glass-blown vase with a complex swirl of colors, illuminated by sunlight, casting a mosaic of shadows on a white table"</em></b>
-          <br>
-          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
         </p>
 
         <div class="wrapper">
@@ -140,11 +146,10 @@
           </figure>
         </div>
         <p style="margin-bottom: 1px; text-align: center;" class="caption_method">
+          <small><i class="material-icons">casino</i></small>
           <b>Text prompt: <em>
             "A delicate glass pendant holding a single, luminous firefly, its glow casting warm, dancing shadows on the wearer's neck"
           </em></b>
-          <br>
-          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
         </p>
 
         <div class="wrapper">
@@ -164,12 +169,11 @@
           </figure>
         </div>
         <p style="margin-bottom: 1px; text-align: center;" class="caption_method">
+          <small><i class="material-icons">casino</i></small>
           <b>Text prompt: <em>"An enchanting forest path with sunlight filtering through the dense canopy, highlighting
               the
               vibrant greens
               and the soft, mossy floor"</em></b>
-          <br>
-          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
         </p>
 
         <div class="wrapper">
@@ -189,13 +193,12 @@
           </figure>
         </div>
         <p style="margin-bottom: 1px; text-align: center;" class="caption_method">
+          <small><i class="material-icons">casino</i></small>
           <b>Text prompt:
             <em>"A wise old owl wearing a velvet smoking jacket and spectacles, with a pipe in its beak, seated in a
               vintage
               leather armchair"</em>
           </b>
-          <br>
-          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
         </p>
 
         <div class="wrapper">
@@ -215,11 +218,12 @@
           </figure>
         </div>
         <p style="margin-bottom: 1px; text-align: center;" class="caption_method">
+          <small><i class="material-icons">casino</i></small>
           <b>Text prompt:
             <em>"A close-up portrait of a baby wearing a tiny spider-man costume, trending on artstation"</em>
           </b>
           <br>
-          <small>Model: Dreamshaper 8, Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
+          <small>Model: Dreamshaper 8</small>
         </p>
 
         <div class="wrapper">
@@ -239,11 +243,12 @@
           </figure>
         </div>
         <p style="margin-bottom: 1px; text-align: center;" class="caption_method">
+          <small><i class="material-icons">casino</i></small>
           <b>Text prompt:
             <em>"1girl, blue dress, blue hair, ponytail, studying at the library, focused"</em>
           </b>
           <br>
-          <small>Model: Dreamshaper 8, Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
+          <small>Model: Dreamshaper 8</small>
         </p>
       </div>
 
@@ -283,11 +288,10 @@
           </figure>
         </div>
         <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <small><i class="material-icons">casino</i></small>
           <b>Text prompt:
             <em>"Capybara podcast neon sign"</em>
           </b>
-          <br>
-          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
         </p>
 
         <div class="wrapper">
@@ -307,11 +311,10 @@
           </figure>
         </div>
         <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <small><i class="material-icons">casino</i></small>
           <b>Text prompt:
             <em>"Capybara podcast neon sign"</em>
           </b>
-          <br>
-          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
         </p>
 
         <div class="wrapper">
@@ -331,11 +334,10 @@
           </figure>
         </div>
         <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <small><i class="material-icons">casino</i></small>
           <b>Text prompt:
             <em>"Capybara podcast neon sign"</em>
           </b>
-          <br>
-          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
         </p>
 
         <div class="wrapper">
@@ -355,11 +357,10 @@
           </figure>
         </div>
         <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <small><i class="material-icons">casino</i></small>
           <b>Text prompt:
             <em>"Long-exposure night photography of a starry sky over a mountain range, with light trails"</em>
           </b>
-          <br>
-          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
         </p>
 
         <div class="wrapper">
@@ -379,11 +380,10 @@
           </figure>
         </div>
         <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <small><i class="material-icons">casino</i></small>
           <b>Text prompt:
             <em>"A tranquil village nestled in a lush valley, with small, cozy houses dotting the landscape, surrounded by towering, snow-capped mountains under a clear blue sky. A gentle river meanders through the village, reflecting the warm glow of the sunrise"</em>
           </b>
-          <br>
-          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
         </p>
 
         <div class="wrapper">
@@ -403,11 +403,10 @@
           </figure>
         </div>
         <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <small><i class="material-icons">casino</i></small>
           <b>Text prompt:
             <em>"An ancient library buried beneath the earth, its halls lit by glowing crystals, with scrolls and tomes stacked in endless rows"</em>
           </b>
-          <br>
-          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
         </p>
 
         <div class="wrapper">
@@ -427,11 +426,10 @@
           </figure>
         </div>
         <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <small><i class="material-icons">casino</i></small>
           <b>Text prompt:
             <em>"A bustling spaceport on a distant planet, with ships of various designs taking off against a backdrop of twin moons"</em>
           </b>
-          <br>
-          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
         </p>
 
         <div class="wrapper">
@@ -451,11 +449,10 @@
           </figure>
         </div>
         <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <small><i class="material-icons">casino</i></small>
           <b>Text prompt:
             <em>"A frozen landscape under the aurora borealis, with a cozy log cabin emitting a warm glow through its windows."</em>
           </b>
-          <br>
-          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
         </p>
 
         <div class="wrapper">
@@ -475,11 +472,10 @@
           </figure>
         </div>
         <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <small><i class="material-icons">casino</i></small>
           <b>Text prompt:
             <em>"A hidden garden oasis in the middle of a desert, complete with a sparkling waterfall and lush, vibrant flora."</em>
           </b>
-          <br>
-          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
         </p>
 
         <div class="wrapper">
@@ -499,11 +495,10 @@
           </figure>
         </div>
         <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <small><i class="material-icons">casino</i></small>
           <b>Text prompt:
             <em>"A steampunk cityscape at sunset, with airships in the sky and gears and steam pipes crisscrossing between buildings."</em>
           </b>
-          <br>
-          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
         </p>
 
         <div class="wrapper">
@@ -523,11 +518,10 @@
           </figure>
         </div>
         <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <small><i class="material-icons">casino</i></small>
           <b>Text prompt:
             <em>"A set of ancient armor, standing as if worn by an invisible warrior, in front of a backdrop of medieval banners and weaponry."</em>
           </b>
-          <br>
-          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
         </p>
 
         <div class="wrapper">
@@ -547,11 +541,10 @@
           </figure>
         </div>
         <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <small><i class="material-icons">casino</i></small>
           <b>Text prompt:
             <em>"An elephant painting a colorful abstract masterpiece with its trunk, in a studio surrounded by amused onlookers."</em>
           </b>
-          <br>
-          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
         </p>
       </div>
 
@@ -590,12 +583,11 @@
           </figure>
         </div>
         <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <small><i class="material-icons">casino</i></small>
           <b>Text prompt:
             <em>"Tiger in construction gear, perched on aged wooden docks, formidable, curious, tiger on the waterfront,
               textured, vibrant, atmospheric, sharp focus, lifelike, professional lighting, cinematic, 8K"</em>
           </b>
-          <br>
-          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
         </p>
 
         <div class="wrapper">
@@ -615,12 +607,11 @@
           </figure>
         </div>
         <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <small><i class="material-icons">casino</i></small>
           <b>Text prompt:
             <em>"Baba Yaga's hut, standing on gnarled chicken legs, nestled in a sinister, fog-laden swamp. 
               The hut is surrounded by twisted trees and a foreboding silence"</em>
           </b>
-          <br>
-          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
         </p>
 
         <div class="wrapper">
@@ -640,12 +631,11 @@
           </figure>
         </div>
         <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <small><i class="material-icons">casino</i></small>
           <b>Text prompt:
             <em>"Cluttered house in the woods, anime, oil painting, high resolution, cottagecore, ghibli inspired,
               4k"</em>
           </b>
-          <br>
-          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
         </p>
 
         <div class="wrapper">
@@ -665,11 +655,10 @@
           </figure>
         </div>
         <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <small><i class="material-icons">casino</i></small>
           <b>Text prompt:
             <em>"An old, creepy dollhouse in a dusty attic, with dolls posed in unsettling positions. Cobwebs, dim lighting, and the shadows of unseen presences create a chilling scene"</em>
           </b>
-          <br>
-          <small>Sampler: SDE-DPM-Solver++(2M), NFE: 10 </small>
         </p>
 
 
@@ -690,13 +679,12 @@
           </figure>
         </div>
         <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <small><i class="material-icons">lock</i></small>
           <b>Text prompt:
             <em>"A stunning, intricately detailed painting of a sunset in a forest valley, blending the rich,
               symmetrical
               styles of Dan Mumford and Marc Simonetti with astrophotography elements"</em>
           </b>
-          <br>
-          <small> Sampler: DPM-Solver++(2M), NFE: 10 </small>
         </p>
 
         <div class="wrapper">
@@ -716,14 +704,13 @@
           </figure>
         </div>
         <p style="margin-bottom: 1px; text-align: center;" class="caption">
+          <small><i class="material-icons">lock</i></small>
           <b>Text prompt:
             <em>"Create a photorealistic scene of a powerful storm with swirling, dark clouds and fierce winds
               approaching a
               coastal village. Show villagers preparing for the storm, with detailed architecture reflecting a fantasy
               world"</em>
           </b>
-          <br>
-          <small> Sampler: DPM-Solver++(2M), NFE: 10 </small>
 
           <div class="wrapper">
             <figure class="image-container">
@@ -742,14 +729,11 @@
             </figure>
           </div>
           <p style="margin-bottom: 1px; text-align: center;" class="caption">
-            <b>Text prompt:
+          <small><i class="material-icons">lock</i></small>
+          <b>Text prompt:
               <em>"Cyberpunk cityscape with towering skyscrapers, neon signs, and flying cars"</em>
             </b>
-            <br>
-            <small> Sampler: DPM-Solver++(2M), NFE: 10 </small>
         </p>
-
-
 
 
 
